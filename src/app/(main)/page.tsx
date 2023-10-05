@@ -14,10 +14,21 @@ export default function Home() {
   return (
     <main
       className={cn(
-        "min-h-screen flex items-center justify-center px-space-2",
+        "min-h-screen flex items-center justify-center px-space-2 relative",
         BlankHeight
       )}
     >
+      <div
+        className="border absolute right-[-1000px] top-auto left-[-1000px] bottom-0 pointer-events-none shrink-0 min-w-0 min-h-0 opacity-[0.1] h-[530px] -z-[1]"
+        style={{
+          background:
+            "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoAQMAAAC2MCouAAAABlBMVEWBgYFHcEyMaNnGAAAAAnRSTlP/AOW3MEoAAAAQSURBVHgBY4CA+v9AMBJIALryrr41QoYVAAAAAElFTkSuQmCC)",
+          maskImage: "linear-gradient(transparent 20%,#000)",
+          WebkitMaskImage: "linear-gradient(transparent 20%,#000)",
+          contain: "paint",
+          backgroundPosition: "50%",
+        }}
+      ></div>
       <Grid className="grid-cols-templateColumnsMedium gap-x-space-2" gapX={4}>
         <Flex
           style={{
@@ -33,6 +44,9 @@ export default function Home() {
           <HeroButton />
         </Flex>
       </Grid>
+
+      <div className="absolute -z-[10] top-[4rem] right-[5rem] h-[16rem] w-[16rem] rounded-full blur-[15rem] bg-ks-brand"></div>
+      <div className="absolute -z-[10] bottom-[4rem] left-[5rem] h-[16rem] w-[16rem] rounded-full blur-[15rem] bg-ks-success"></div>
     </main>
   );
 }
