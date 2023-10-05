@@ -363,3 +363,28 @@ html,
     @apply bg-ks-body text-ks-typeface-primary;
   }
 }
+
+.rainbow {
+  background: -webkit-linear-gradient(
+    90deg,
+    #ff802b,
+    var(--knightscale-colors-brand),
+    #e34ba9,
+    var(--knightscale-colors-success),
+    #3cb179
+  );
+  background: linear-gradient(
+    90deg,
+    #ff802b,
+    var(--knightscale-colors-brand),
+    #e34ba9,
+    var(--knightscale-colors-success),
+    #3cb179
+  );
+}
+
+.clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

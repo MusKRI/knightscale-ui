@@ -30,7 +30,7 @@ const Header = (props: HeaderProps) => {
 
   const reached = useScrollCounter(offsetHeight / 2);
 
-  const BlankHeight = `h-[120px] md:h-[120px]`;
+  const BlankHeight = `h-[120px] md:h-[256px]`;
 
   return (
     <>
@@ -72,7 +72,7 @@ const Header = (props: HeaderProps) => {
           </Flex>
         </Grid>
       </motion.header>
-      <div className={cn(BlankHeight)}></div>
+      {/* <div className={cn(BlankHeight)}></div> */}
     </>
   );
 };
