@@ -294,7 +294,7 @@ html,
     --knightscale-colors-typeface-danger: hsla(var(--palette-red-60), 100%);
     --knightscale-border-color: var(--knightscale-colors-emphasis);
     --knightscale-card-background-color: hsl(var(--palette-gray-01));
-    --knightscale-form-input-background: hsl(var(--palette-gray-100));
+    --knightscale-form-input-background: hsl(var(--palette-gray-00));
     --knightscale-form-input-active: var(--knightscale-colors-brand);
     --knightscale-form-input-disabled: hsl(var(--palette-gray-09));
     --knightscale-form-input-border: hsl(var(--palette-blue-10));

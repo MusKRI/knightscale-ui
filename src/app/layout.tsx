@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 
 import { ThemeProvider } from "@/providers/theme-provider";
 import Header from "@/core/components/Header/Header";
+import ToastProvider from "@/providers/toast-provider";
+import SessionProvider from "@/providers/session-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,15 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          storageKey="ks-theme"
-          enableSystem={false}
-        >
-          <Header offsetHeight={256} />
-          {children}
-        </ThemeProvider>
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            storageKey="ks-theme"
+            enableSystem={false}
+          >
+            <ToastProvider />
+            <Header offsetHeight={256} />
+            {children}
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   );

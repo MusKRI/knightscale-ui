@@ -11,7 +11,7 @@ import { HeaderProps } from "./types";
 
 import useScrollCounter from "@/core/hooks/useScrollCounter";
 import ModeToggle from "../mode-toggle/ModeToggle";
-import ToggleMenu from "../mode-toggle/ToggleMenu";
+// import ToggleMenu from "../mode-toggle/ToggleMenu";
 import { cn } from "@/lib/utils";
 
 const headerVariants: Variants = {
@@ -67,7 +67,7 @@ const Header = (props: HeaderProps) => {
 
             <Flex gap={3}>
               <ModeToggle />
-              <ToggleMenu />
+              {/* <ToggleMenu /> */}
             </Flex>
           </Flex>
         </Grid>
