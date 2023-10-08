@@ -1,17 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import {
-  useMotionValue,
-  motion,
-  Variants,
-  useTransform,
-  useSpring,
-} from "framer-motion";
+import { useMotionValue, motion, useTransform, useSpring } from "framer-motion";
 
 import Button from "../ui/button/Button";
+import { useMenu } from "../Menu/useMenu";
+import { useEffect } from "react";
 
 const ToggleMenu = () => {
+  const { onToggle, isOpen } = useMenu();
+
   const scrollYProgressMV = useMotionValue(0);
   const scrollYProgress = useSpring(scrollYProgressMV, { duration: 2000 });
   // const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.5, 0.5]);
@@ -49,17 +46,19 @@ const ToggleMenu = () => {
     damping: 50,
   });
 
-  const [state, setState] = useState(0);
-
   const onClick = () => {
-    if (state === 0) {
+    if (isOpen === false) {
       scrollYProgressMV.set(1);
-      setState(1);
+      onToggle(true);
     } else {
       scrollYProgressMV.set(0);
-      setState(0);
+      onToggle(false);
     }
   };
+
+  useEffect(() => {
+    isOpen ? scrollYProgressMV.set(1) : scrollYProgressMV.set(0);
+  }, [isOpen]);
 
   return (
     <Button

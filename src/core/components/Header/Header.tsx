@@ -3,6 +3,7 @@
 // **** Library Imports ****
 import { Variants, motion } from "framer-motion";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 // **** Local Imports ****
 import { default as Grid } from "../ui/grid";
@@ -11,7 +12,7 @@ import { HeaderProps } from "./types";
 
 import useScrollCounter from "@/core/hooks/useScrollCounter";
 import ModeToggle from "../mode-toggle/ModeToggle";
-// import ToggleMenu from "../mode-toggle/ToggleMenu";
+import ToggleMenu from "../mode-toggle/ToggleMenu";
 import { cn } from "@/lib/utils";
 
 const headerVariants: Variants = {
@@ -26,11 +27,11 @@ const headerVariants: Variants = {
 };
 
 const Header = (props: HeaderProps) => {
-  const { title, offsetHeight = 120, showProgressBarOnMobile } = props;
+  const { offsetHeight = 120 } = props;
 
   const reached = useScrollCounter(offsetHeight / 2);
 
-  const BlankHeight = `h-[120px] md:h-[256px]`;
+  const { status } = useSession();
 
   return (
     <>
@@ -67,7 +68,7 @@ const Header = (props: HeaderProps) => {
 
             <Flex gap={3}>
               <ModeToggle />
-              {/* <ToggleMenu /> */}
+              {status === "authenticated" && <ToggleMenu />}
             </Flex>
           </Flex>
         </Grid>

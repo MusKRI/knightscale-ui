@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Menu from "@/core/components/Menu/Menu";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Header from "@/core/components/Header/Header";
 import ToastProvider from "@/providers/toast-provider";
@@ -30,6 +31,7 @@ export default function RootLayout({
             enableSystem={false}
           >
             <ToastProvider />
+            <Menu />
             <Header offsetHeight={256} />
             {children}
           </ThemeProvider>
